@@ -20183,6 +20183,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 175
       objectReference: {fileID: 0}
+    - target: {fileID: 4599364349696255129, guid: ac308bc559a2d0b43b826bd989e03924,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 158.5656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599364349696255129, guid: ac308bc559a2d0b43b826bd989e03924,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 158.5656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599364349696255129, guid: ac308bc559a2d0b43b826bd989e03924,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 349
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599364349696255129, guid: ac308bc559a2d0b43b826bd989e03924,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 147.72
+      objectReference: {fileID: 0}
     - target: {fileID: 4810257893856120276, guid: ac308bc559a2d0b43b826bd989e03924,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -20203,6 +20223,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5048027542297665401, guid: ac308bc559a2d0b43b826bd989e03924,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 45d46aa6c35cd2f498db829a836544de, type: 3}
     - target: {fileID: 5198678679673473633, guid: ac308bc559a2d0b43b826bd989e03924,
         type: 3}
       propertyPath: m_AnchorMax.y
