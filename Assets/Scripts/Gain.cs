@@ -20,6 +20,7 @@ public class Gain : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.AddCoins(pointsToAdd);
+            Destroy(gameObject.transform.parent.GetChild(2).gameObject);
             Destroy(this.gameObject);
         }
     }
