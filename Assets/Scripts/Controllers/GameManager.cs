@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
@@ -24,6 +25,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
 
+    [Header("Feedbacks")]
+    public int countPizza = 0;
+
+    public GameObject endFeedback;
+    public Animator deliveryFeedback;
+
     // Variables para guardar la posición inicial del jugador
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
@@ -38,11 +45,20 @@ public class GameManager : MonoBehaviour
         // rb = player.GetComponent<Rigidbody>(); // Si quieres habilitar esto más tarde
     }
 
+    private void FixedUpdate() 
+    {
+        if (countPizza >= 3)
+        {
+            endFeedback.SetActive(true);
+        }
+    }
+
     // Method for update the coins TXT
     public void AddCoins(int amount)
     {
         uIController.coins += amount; // Sumar el valor pasado como parámetro
         uIController.UpdateCoinText(); // Actualizar el texto
+        countPizza++;
     }
 
     public void SwitchCatPizza(bool value)
@@ -112,5 +128,10 @@ public class GameManager : MonoBehaviour
         catPizzaBox.GetComponent<Animator>().Rebind();
         catMenu.GetComponent<Animator>().Rebind();
         catMoto.GetComponent<Animator>().Rebind();
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

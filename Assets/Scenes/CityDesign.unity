@@ -4007,6 +4007,9 @@ MonoBehaviour:
   player: {fileID: 152621871}
   mainCanva: {fileID: 661347052}
   rb: {fileID: 152621895}
+  countPizza: 0
+  endFeedback: {fileID: 1412870501}
+  deliveryFeedback: {fileID: 661347057}
 --- !u!4 &340301223
 Transform:
   m_ObjectHideFlags: 0
@@ -11029,7 +11032,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1241496137}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340301222}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1241496137
 MonoBehaviour:
   m_ObjectHideFlags: 0
