@@ -107,7 +107,8 @@ public class MotorcycleController : MonoBehaviour
                 isBraking = false;
             }
         }else{
-            Debug.Log("im parching");}
+            //Debug.Log("im parching");
+            }
     }
 }
 
