@@ -60,6 +60,14 @@ public class GameManager : MonoBehaviour
         uIController.UpdateCoinText(); // Actualizar el texto
         countPizza++;
     }
+    
+    //Método para restar monedas
+    public void SubtractCoins(int amount)
+    {
+        uIController.coins = Mathf.Max(0, uIController.coins - amount); // Se resta la cantidad de monedas y se verifica que no sea negativo
+        uIController.UpdateCoinText(); // Actualizar el texto
+        //countPizza++;
+    }
 
     public void SwitchCatPizza(bool value)
     {

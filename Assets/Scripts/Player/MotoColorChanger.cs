@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class MotoColorChanger : MonoBehaviour
 {
     public Material[] materials; // Lista de materiales disponibles
-    public GameObject[] objectsToChange; // Lista de objetos a los que se les cambiará el material
-    public GameObject colorSelectionCanvas; // El Canvas para seleccionar el color
-    public Text colorNameText; // Texto que mostrará el nombre del color
-    public Button leftArrowButton; // Botón para moverse a la izquierda
-    public Button rightArrowButton; // Botón para moverse a la derecha
-    public Button selectButton; // Botón para seleccionar el color
+    [SerializeField] private GameObject[] objectsToChange; // Lista de objetos a los que se les cambiará el material
+    [SerializeField] private GameObject colorSelectionCanvas; // El Canvas para seleccionar el color
+    [SerializeField] private Text colorNameText; // Texto que mostrará el nombre del color
+    [SerializeField] private Button leftArrowButton; // Botón para moverse a la izquierda
+    [SerializeField] private Button rightArrowButton; // Botón para moverse a la derecha
+    [SerializeField] private Button selectButton; // Botón para seleccionar el color
 
     private int currentMaterialIndex = 0; // Índice del material actual
 
@@ -32,7 +32,14 @@ public class MotoColorChanger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             ToggleColorSelectionCanvas();
-            Time.timeScale = 0;
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1; // Reanudar el tiempo
+            }
+            else
+            {
+                Time.timeScale = 0; // Detener el tiempo
+            }
         }
     }
 
