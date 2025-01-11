@@ -128,11 +128,4 @@ public class MotorcycleController : MonoBehaviour
             rb.velocity = newHorizontalVelocity;
         }
     }
-
-    private void OnCollisionEnter(Collision other) {
-        if(!other.gameObject.CompareTag("Floor"))
-        {
-            rb.velocity = Vector3.zero;
-        }
-    }
 }
