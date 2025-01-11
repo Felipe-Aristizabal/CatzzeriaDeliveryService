@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MotorcycleController : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float acceleration = 0.1f;
     public float maxSpeed = 20f;
     public float maxReverseSpeed = 7f;
@@ -12,11 +13,13 @@ public class MotorcycleController : MonoBehaviour
     public float tiltAngle = 15f;
 
     private float currentSpeed = 0f;
-    private Rigidbody rb;
-    private MotocycleSound audioManager; // Referencia al script MotorcycleAudio
     private bool isBraking = false;
 
+    [Header("References")]
+    private Rigidbody rb;
+    private MotocycleSound audioManager; 
     [SerializeField] private PlayerPositionState _playerPosition;
+
     public float CurrentSpeed
     {
         get { return currentSpeed; }
@@ -24,25 +27,24 @@ public class MotorcycleController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Obtener el componente RigidBody
-        audioManager = GetComponent<MotocycleSound>(); // Obtener referencia al script de audio
+        rb = GetComponent<Rigidbody>();
+        audioManager = GetComponent<MotocycleSound>();
     }
 
     void Update()
     {
+        // Only process inputs and rotation if we are not restarting
         if (!_playerPosition.isRestart)
         {
             float moveInput = Input.GetAxis("Vertical");
             float turnInput = Input.GetAxis("Horizontal");
-            float turn = 0f;
-            float tilt = 0f;
 
-            // Detectar si la moto está frenando
             bool isCurrentlyBraking = false;
 
-            // Lógica de frenado y aceleración
+            // -- ACCELERATION/BRAKE LOGIC
             if (moveInput > 0)
             {
+                // If going backward and pressing forward, first move towards 0
                 if (currentSpeed < 0)
                 {
                     currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, brakePower * Time.deltaTime);
@@ -56,6 +58,7 @@ public class MotorcycleController : MonoBehaviour
             }
             else if (moveInput < 0)
             {
+                // If going forward and pressing backward, first move towards 0
                 if (currentSpeed > 0)
                 {
                     currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, brakePower * Time.deltaTime);
@@ -69,45 +72,67 @@ public class MotorcycleController : MonoBehaviour
             }
             else
             {
+                // Without input, smoothly move speed towards 0
                 if (currentSpeed != 0)
                 {
                     isCurrentlyBraking = true;
                 }
-
                 currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, acceleration * Time.deltaTime);
             }
 
-            // Solo permitir la rotación si la moto está en movimiento
+            // -- TURN AND TILT LOGIC (only if there's a noticeable speed)
+            float turn = 0f;
+            float tilt = 0f;
             if (Mathf.Abs(currentSpeed) > 0.1f)
             {
                 turn = turnInput * turnSpeed * Time.deltaTime;
                 tilt = -turnInput * tiltAngle;
             }
 
-            // Aplicar el movimiento
-            Vector3 moveDirection = transform.forward * currentSpeed * Time.deltaTime;
-            rb.MovePosition(rb.position + moveDirection);
-
-            // Aplicar la rotación solo si hay velocidad
+            // Apply rotation on Y-axis in Update for smooth turning
             transform.Rotate(0, turn, 0);
 
-            // Aplicar la inclinación
-            transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x,
-                transform.localRotation.eulerAngles.y, tilt);
+            // Apply tilt on Z-axis (while preserving current X and Y rotation)
+            transform.localRotation = Quaternion.Euler(
+                transform.localRotation.eulerAngles.x,
+                transform.localRotation.eulerAngles.y,
+                tilt
+            );
 
-            // Reproducir el sonido de freno si está frenando
+            // Handle brake sound
             if (isCurrentlyBraking && !isBraking)
             {
-                audioManager.PlayBrakeSound(); // Notificar al sistema de sonido
+                audioManager.PlayBrakeSound();
                 isBraking = true;
             }
             else if (!isCurrentlyBraking && isBraking)
             {
-                audioManager.StopBraking(); // Detener el estado de frenado
+                audioManager.StopBraking();
                 isBraking = false;
             }
-        }else{
-            Debug.Log("im parching");}
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // In FixedUpdate, we handle physics-related movement
+        if (!_playerPosition.isRestart)
+        {
+            // Build horizontal velocity based on the motorcycle's forward direction
+            Vector3 newHorizontalVelocity = transform.forward * currentSpeed;
+
+            // Preserve the current y-velocity for proper gravity behavior
+            newHorizontalVelocity.y = rb.velocity.y;
+
+            // Assign the new velocity to the rigidbody
+            rb.velocity = newHorizontalVelocity;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(!other.gameObject.CompareTag("Floor"))
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }
-

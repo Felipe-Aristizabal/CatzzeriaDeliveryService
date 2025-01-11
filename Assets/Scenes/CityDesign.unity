@@ -2668,7 +2668,7 @@ GameObject:
   - component: {fileID: 231104550}
   m_Layer: 0
   m_Name: Road1 (6)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2850,7 +2850,7 @@ GameObject:
   - component: {fileID: 235879876}
   m_Layer: 0
   m_Name: Road1 (18)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3054,7 +3054,7 @@ GameObject:
   - component: {fileID: 254888557}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3736,11 +3736,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3202239612878555311, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 4229215564779636748, guid: 28d8f5c017f1531499487ac10a7a21ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3796,66 +3791,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MotocyclePlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 4454308884326023512, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: selectButton
-      value: 
-      objectReference: {fileID: 678065192}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: colorNameText
-      value: 
-      objectReference: {fileID: 163012538}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: leftArrowButton
-      value: 
-      objectReference: {fileID: 150874837}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: rightArrowButton
-      value: 
-      objectReference: {fileID: 1708079422}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: colorSelectionCanvas
-      value: 
-      objectReference: {fileID: 1399456185}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: objectsToChange.Array.data[0]
-      value: 
-      objectReference: {fileID: 366519776}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: objectsToChange.Array.data[1]
-      value: 
-      objectReference: {fileID: 473088250}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: objectsToChange.Array.data[2]
-      value: 
-      objectReference: {fileID: 1388834173}
-    - target: {fileID: 4520323492482891324, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: objectsToChange.Array.data[3]
-      value: 
-      objectReference: {fileID: 1933862452}
-    - target: {fileID: 6180243404398174420, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7083457002373173993, guid: 28d8f5c017f1531499487ac10a7a21ea,
-        type: 3}
-      propertyPath: _playerPosition
-      value: 
-      objectReference: {fileID: 152621888}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5377,7 +5312,7 @@ GameObject:
   - component: {fileID: 551735225}
   m_Layer: 0
   m_Name: Road1 (12)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6061,7 +5996,7 @@ GameObject:
   - component: {fileID: 620763689}
   m_Layer: 0
   m_Name: Road1 (10)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8386,7 +8321,7 @@ GameObject:
   - component: {fileID: 928988381}
   m_Layer: 0
   m_Name: Road1 (14)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10285,7 +10220,7 @@ GameObject:
   - component: {fileID: 1166037294}
   m_Layer: 0
   m_Name: Road1 (11)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11035,8 +10970,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 340301222}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ReloadScene
+        m_MethodName: CallRestart
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1412870501}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11260,7 +11207,7 @@ GameObject:
   - component: {fileID: 1269547428}
   m_Layer: 0
   m_Name: Road1 (7)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11946,7 +11893,7 @@ GameObject:
   - component: {fileID: 1317631382}
   m_Layer: 0
   m_Name: Road1
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12586,7 +12533,7 @@ GameObject:
   - component: {fileID: 1360939322}
   m_Layer: 0
   m_Name: Road1 (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13175,7 +13122,7 @@ GameObject:
   - component: {fileID: 1424193554}
   m_Layer: 0
   m_Name: Road1 (8)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16483,7 +16430,7 @@ GameObject:
   - component: {fileID: 1727304517}
   m_Layer: 0
   m_Name: Road1 (17)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16589,7 +16536,7 @@ GameObject:
   - component: {fileID: 1731001169}
   m_Layer: 0
   m_Name: Road1 (15)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16779,7 +16726,7 @@ GameObject:
   - component: {fileID: 1742462607}
   m_Layer: 0
   m_Name: Road1 (5)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16969,7 +16916,7 @@ GameObject:
   - component: {fileID: 1753795106}
   m_Layer: 0
   m_Name: Road1 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17322,7 +17269,7 @@ GameObject:
   - component: {fileID: 1794537624}
   m_Layer: 0
   m_Name: Road1 (19)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17507,7 +17454,7 @@ GameObject:
   - component: {fileID: 1802984056}
   m_Layer: 0
   m_Name: Road1 (13)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17776,7 +17723,7 @@ GameObject:
   - component: {fileID: 1808718742}
   m_Layer: 0
   m_Name: Road1 (16)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18490,7 +18437,7 @@ GameObject:
   - component: {fileID: 1877463970}
   m_Layer: 0
   m_Name: Road1 (3)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18863,7 +18810,7 @@ GameObject:
   - component: {fileID: 1897370937}
   m_Layer: 0
   m_Name: Road1 (9)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20363,7 +20310,7 @@ GameObject:
   - component: {fileID: 2052373403}
   m_Layer: 0
   m_Name: Road1 (4)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

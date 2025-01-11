@@ -130,6 +130,11 @@ public class GameManager : MonoBehaviour
         catMoto.GetComponent<Animator>().Rebind();
     }
 
+    public void CallRestart()
+    {
+        StartCoroutine(RestartScene());
+    }
+
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

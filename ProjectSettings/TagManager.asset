@@ -7,6 +7,7 @@ TagManager:
   - CustomerBuilding
   - WarningZone
   - Restart
+  - Floor
   layers:
   - Default
   - TransparentFX
