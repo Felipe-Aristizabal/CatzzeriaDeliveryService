@@ -1789,13 +1789,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc387a1918b1bd43b4fe97da1f6ce06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHat: 6
   hatList:
   - {fileID: 41005879}
   - {fileID: 1996207240}
   - {fileID: 1344961821}
   - {fileID: 500151242}
   - {fileID: 1703030685}
-  currentHat: 5
 --- !u!1 &161546980
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwitchHat : MonoBehaviour
@@ -14,8 +15,8 @@ public class SwitchHat : MonoBehaviour
         none
     }
 
-    public CurrentHat currentHat;
-    [SerializeField] private List<GameObject> hatList;
+    public CurrentHat currentHat; // !CALL THIS ENUM FOR SWITCH THE HAT
+    [SerializeField] private List<GameObject> hatList; //list of hats (GameObjects)
 
 
     void FixedUpdate()
@@ -25,7 +26,9 @@ public class SwitchHat : MonoBehaviour
 
     private void SwitchCurretHat()
     {
-        TurnOffHats();  
+        TurnOffHats(); // this method is called so that the hats do not overlap when they are turned on and off
+        
+        //depending on the enum status, one hat or another will be activated.
         switch (currentHat)
         {
             case CurrentHat.elegant:
@@ -58,6 +61,7 @@ public class SwitchHat : MonoBehaviour
         }
     }
 
+    //Turn Of all objects in the list 
     private void TurnOffHats()
     {
         foreach (var item in hatList)
