@@ -18,14 +18,13 @@ GameObject:
   - component: {fileID: 6085939041854777639}
   - component: {fileID: 6180243404398174420}
   - component: {fileID: 3521005178718940899}
-  - component: {fileID: 4520323492482891324}
   m_Layer: 0
   m_Name: MotocycleTest
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4229215564779636748
 Transform:
   m_ObjectHideFlags: 0
@@ -118,7 +117,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!114 &7083457002373173993
 MonoBehaviour:
@@ -292,7 +291,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 28e6cd106d809554392284b913745486, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 0.5
   Loop: 0
   Mute: 0
@@ -472,31 +471,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4520323492482891324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454308884326023512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf5f774fbd217043a1b3c95b338f6ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 56c2e8da9ca75db4eafb77ba529fd0fd, type: 2}
-  - {fileID: 2100000, guid: 71d660fa6f5f758439d1f59a3457b1c0, type: 2}
-  - {fileID: 2100000, guid: c80e08b4908a1e14c80f44fcd894d6fb, type: 2}
-  - {fileID: 2100000, guid: 640ab1a520092724d9163e3eb1bf1aa7, type: 2}
-  objectsToChange:
-  - {fileID: 6668338589735260809}
-  - {fileID: 92288422285372798}
-  - {fileID: 1866315005905907784}
-  - {fileID: 6934523744231730730}
-  purchasedMaterials: []
-  costToFixColor: 10
-  uiController: {fileID: 0}
 --- !u!1001 &483468757021018544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -509,6 +483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vespa_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081873590852993311, guid: 50e23f354d00d13418d51bd10f1d1df8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8868842650776980220, guid: 50e23f354d00d13418d51bd10f1d1df8,
         type: 3}
@@ -569,18 +548,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3937412220190983017}
   m_SourcePrefab: {fileID: 100100000, guid: 50e23f354d00d13418d51bd10f1d1df8, type: 3}
---- !u!1 &92288422285372798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 572660363931133134, guid: 50e23f354d00d13418d51bd10f1d1df8,
-    type: 3}
-  m_PrefabInstance: {fileID: 483468757021018544}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1866315005905907784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2257389567394740728, guid: 50e23f354d00d13418d51bd10f1d1df8,
-    type: 3}
-  m_PrefabInstance: {fileID: 483468757021018544}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3202239612878555311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3081873590852993311, guid: 50e23f354d00d13418d51bd10f1d1df8,
@@ -608,18 +575,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8999939, y: 1.7206062, z: 2.7787294}
   m_Center: {x: 1.4915466, y: 2.34142, z: -0.8026004}
---- !u!1 &6668338589735260809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6502937106154773305, guid: 50e23f354d00d13418d51bd10f1d1df8,
-    type: 3}
-  m_PrefabInstance: {fileID: 483468757021018544}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6934523744231730730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7388648728481851290, guid: 50e23f354d00d13418d51bd10f1d1df8,
-    type: 3}
-  m_PrefabInstance: {fileID: 483468757021018544}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9052751073270924108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8868842650776980220, guid: 50e23f354d00d13418d51bd10f1d1df8,

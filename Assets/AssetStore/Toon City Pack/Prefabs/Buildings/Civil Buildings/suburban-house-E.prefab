@@ -53,7 +53,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3
+  m_Radius: 3.85
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3914102612490848717
 MonoBehaviour:
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8462484812748404531}
   - component: {fileID: 4818590521415874710}
   - component: {fileID: 7294676657625779292}
-  - component: {fileID: 140343136087561796}
+  - component: {fileID: 1911351078646799319}
   m_Layer: 0
   m_Name: suburban-house-E
   m_TagString: Untagged
@@ -372,8 +372,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &140343136087561796
-MeshCollider:
+--- !u!65 &1911351078646799319
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -390,7 +390,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1489965604745968621, guid: 1b0ac9192a2fa495da3177a06b6ca927, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 7.16648, y: 10.1026, z: 7.166479}
+  m_Center: {x: 0.38573372, y: 5.0513, z: 0.38573408}
