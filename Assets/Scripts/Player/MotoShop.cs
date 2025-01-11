@@ -11,6 +11,8 @@ public class MotoShop : MonoBehaviour
     [SerializeField] private UIController uIController; //Referencia al UIController
     [SerializeField] private Text dataText; //Referencia al data Text
     [SerializeField] private GameObject shopCanvas; // Canvas de la tienda
+    [SerializeField] private GameObject colorSelectionCanvas; // Canvas del inventario
+    [SerializeField] private Button openInventoryButton; // Botón para volver al inventario desde la tienda
     [SerializeField] private Text materialNameText; // Texto que mostrará el nombre del material
     [SerializeField] private Button buyButton; // Botón para comprar el material
     [SerializeField] private Button leftArrowButton; // Botón para moverse a la izquierda
@@ -27,39 +29,37 @@ public class MotoShop : MonoBehaviour
         leftArrowButton.onClick.AddListener(SelectPreviousMaterial);
         rightArrowButton.onClick.AddListener(SelectNextMaterial);
         buyButton.onClick.AddListener(BuyMaterial);
-
+        openInventoryButton.onClick.AddListener(OpenInventory);
         dataText.text = "";
     }
 
     void Update()
     {
-        // Mostrar/ocultar la tienda al presionar "T"
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            ToggleShopCanvas();
-            if (Time.timeScale == 0)
-            {
-                Time.timeScale = 1; // Reanudar el tiempo
-            }
-            else
-            {
-                Time.timeScale = 0; // Detener el tiempo
-            }
+            if (!shopCanvas.activeSelf) return; 
+
+            shopCanvas.gameObject.SetActive(false); 
+            Time.timeScale = 1; 
         }
     }
-
-    // Función para mostrar/ocultar el Canvas de la tienda
-    void ToggleShopCanvas()
+    void OpenInventory()
     {
-        bool isActive = shopCanvas.gameObject.activeSelf;
-        shopCanvas.gameObject.SetActive(!isActive);
-
-        // Actualizar el nombre del material si la tienda está activa
-        if (!isActive)
-        {
-            UpdateMaterialName();
-        }
+        shopCanvas.gameObject.SetActive(false); // Apagar el Canvas de la tienda
+        colorSelectionCanvas.gameObject.SetActive(true); // Encender el Canvas del inventario
     }
+    
+    // void ToggleShopCanvas()
+    // {
+    //     bool isActive = shopCanvas.gameObject.activeSelf;
+    //     shopCanvas.gameObject.SetActive(!isActive);
+
+    //     // Actualizar el nombre del material si la tienda está activa
+    //     if (!isActive)
+    //     {
+    //         UpdateMaterialName();
+    //     }
+    // }
 
     // Función para seleccionar el material anterior en la lista
     void SelectPreviousMaterial()

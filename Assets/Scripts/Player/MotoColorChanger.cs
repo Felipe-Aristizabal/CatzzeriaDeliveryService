@@ -8,6 +8,8 @@ public class MotoColorChanger : MonoBehaviour
     public Material[] materials; // Lista de materiales disponibles
     [SerializeField] private GameObject[] objectsToChange; // Lista de objetos a los que se les cambiará el material
     [SerializeField] private GameObject colorSelectionCanvas; // El Canvas para seleccionar el color
+    [SerializeField] private GameObject shopCanvas; // Canvas de la tienda
+    [SerializeField] private Button openShopButton; // Botón para abrir la tienda desde el inventario
     [SerializeField] private Text colorNameText; // Texto que mostrará el nombre del color
     [SerializeField] private Button leftArrowButton; // Botón para moverse a la izquierda
     [SerializeField] private Button rightArrowButton; // Botón para moverse a la derecha
@@ -24,6 +26,7 @@ public class MotoColorChanger : MonoBehaviour
         leftArrowButton.onClick.AddListener(SelectPreviousColor);
         rightArrowButton.onClick.AddListener(SelectNextColor);
         selectButton.onClick.AddListener(FixColor);
+        openShopButton.onClick.AddListener(OpenShop);
     }
 
     void Update()
@@ -31,6 +34,7 @@ public class MotoColorChanger : MonoBehaviour
         // Activar o desactivar el Canvas al presionar "P"
         if (Input.GetKeyDown(KeyCode.P))
         {
+            if (shopCanvas.activeSelf) return;
             ToggleColorSelectionCanvas();
             if (Time.timeScale == 0)
             {
@@ -54,6 +58,11 @@ public class MotoColorChanger : MonoBehaviour
         {
             UpdateColorName();
         }
+    }
+    void OpenShop()
+    {
+        colorSelectionCanvas.gameObject.SetActive(false); 
+        shopCanvas.gameObject.SetActive(true); 
     }
 
     // Función para seleccionar el color anterior en la lista
