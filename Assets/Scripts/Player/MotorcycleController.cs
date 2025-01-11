@@ -127,5 +127,5 @@ public class MotorcycleController : MonoBehaviour
             // Assign the new velocity to the rigidbody
             rb.velocity = newHorizontalVelocity;
         }
-    }
+    }   
 }
