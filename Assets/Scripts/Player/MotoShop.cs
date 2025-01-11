@@ -156,7 +156,7 @@ public class MotoShop : MonoBehaviour
             buyButton.gameObject.SetActive(false);
             leftArrowButton.gameObject.SetActive(false);
             rightArrowButton.gameObject.SetActive(false);
-            materialNameText.text = "No hay más materiales";
+            materialNameText.text = "There isn't more materials";
         }
     }
 }
