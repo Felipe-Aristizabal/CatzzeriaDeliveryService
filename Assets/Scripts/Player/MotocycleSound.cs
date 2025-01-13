@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MotocycleSound : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class MotocycleSound : MonoBehaviour
     private int currentSongIndex = 0; // Índice de la canción actual
     public float fadeDuration = 1.0f; // Duración del fade-out y fade-in
 
+    // ---------------------- Slider de volumen ----------------------
+    public Slider volumeSlider;
+
     void Start()
     {
         // Configuración del motor
@@ -30,11 +34,25 @@ public class MotocycleSound : MonoBehaviour
         motorAudioSource.loop = true; // Hacer que el sonido del motor sea un loop
         motorAudioSource.Play(); // Reproducir el sonido del motor
 
+        // Configuración del volumen inicial en la mitad (0.5)
+        float initialVolume = 0.5f;
+
+        motorAudioSource.volume = initialVolume;
+        brakeAudioSource.volume = initialVolume;
+        radioAudioSource.volume = initialVolume;
+
         // Configuración de la radio
         if (songs.Length > 0)
         {
             radioAudioSource.clip = songs[currentSongIndex];
             radioAudioSource.Play();
+        }
+
+        // Configuración inicial del slider
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = initialVolume; 
+            volumeSlider.onValueChanged.AddListener(SetVolume); // Escucha cambios en el slider
         }
     }
 
@@ -57,6 +75,12 @@ public class MotocycleSound : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(FadeOutAndNextSong(fadeDuration)); // Iniciar el fade-out al presionar 'R'
+        }
+        
+        // Actualiza el slider con el volumen actual
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = motorAudioSource.volume;
         }
     }
 
@@ -101,5 +125,12 @@ public class MotocycleSound : MonoBehaviour
             radioAudioSource.volume += Time.deltaTime / fadeDuration;
             yield return null;
         }
+    }
+    // ---------------------- Control del Volumen ----------------------
+    public void SetVolume(float volume)
+    {
+        motorAudioSource.volume = volume;
+        brakeAudioSource.volume = volume;
+        radioAudioSource.volume = volume;
     }
 }
