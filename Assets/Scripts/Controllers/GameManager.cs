@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
     
-
     private void Start()
     {
         // Guardar la posición y rotación inicial del jugador
@@ -52,6 +51,7 @@ public class GameManager : MonoBehaviour
             endFeedback.SetActive(true);
         }
     }
+
 
     // Method for update the coins TXT
     public void AddCoins(int amount)
@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
         
         catAnim.SetActive(true);
         
+        countPizza = 0;
+        
         
         rb.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour
         
         
         rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ;
         
         player.GetComponent<PlayerPositionState>().isRestart = false;
         
