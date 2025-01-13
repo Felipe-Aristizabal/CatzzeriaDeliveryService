@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class MotoColorChanger : MonoBehaviour
 {
     public Material[] materials; // Lista de materiales disponibles
+
+    [Header("Canvas")]
     [SerializeField] private GameObject[] objectsToChange; // Lista de objetos a los que se les cambiará el material
     [SerializeField] private GameObject colorSelectionCanvas; // El Canvas para seleccionar el color
     [SerializeField] private GameObject shopCanvas; // Canvas de la tienda
+    [SerializeField] private GameObject hatInventoryCanvas; // Canvas del inventario de sombreros
+    [SerializeField] private GameObject hatStoreCanvas; // Canvas de la tienda de sombreros
+
+    [Header("Canvas")]
     [SerializeField] private Button openShopButton; // Botón para abrir la tienda desde el inventario
+    [SerializeField] private Button openHatButton; 
     [SerializeField] private Text colorNameText; // Texto que mostrará el nombre del color
     [SerializeField] private Button leftArrowButton; // Botón para moverse a la izquierda
     [SerializeField] private Button rightArrowButton; // Botón para moverse a la derecha
@@ -27,22 +34,32 @@ public class MotoColorChanger : MonoBehaviour
         rightArrowButton.onClick.AddListener(SelectNextColor);
         selectButton.onClick.AddListener(FixColor);
         openShopButton.onClick.AddListener(OpenShop);
+        openHatButton.onClick.AddListener(OpenHatInven);
+
     }
 
     void Update()
     {
-        // Activar o desactivar el Canvas al presionar "P"
+        // Activar o desactivar los Canvas al presionar "P"
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (shopCanvas.activeSelf) return;
-            ToggleColorSelectionCanvas();
-            if (Time.timeScale == 0)
+            if (Time.timeScale == 1)
             {
-                Time.timeScale = 1; // Reanudar el tiempo
+                // Si el tiempo está en 1, prender el Canvas de selección de color y pausar el tiempo
+                colorSelectionCanvas.SetActive(true);
+                Time.timeScale = 0;
             }
-            else
+            else if (Time.timeScale == 0)
             {
-                Time.timeScale = 0; // Detener el tiempo
+                // Si el tiempo está en 0 y algún Canvas está activo, apagar todos los Canvas y reanudar el tiempo
+                if (colorSelectionCanvas.activeSelf || shopCanvas.activeSelf || hatInventoryCanvas.activeSelf || hatStoreCanvas.activeSelf)
+                {
+                    colorSelectionCanvas.SetActive(false);
+                    shopCanvas.SetActive(false);
+                    hatInventoryCanvas.SetActive(false);
+                    hatStoreCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
             }
         }
     }
@@ -63,6 +80,12 @@ public class MotoColorChanger : MonoBehaviour
     {
         colorSelectionCanvas.gameObject.SetActive(false); 
         shopCanvas.gameObject.SetActive(true); 
+    }
+
+    void OpenHatInven()
+    {
+        colorSelectionCanvas.gameObject.SetActive(false); 
+        hatInventoryCanvas.gameObject.SetActive(true); 
     }
 
     // Función para seleccionar el color anterior en la lista

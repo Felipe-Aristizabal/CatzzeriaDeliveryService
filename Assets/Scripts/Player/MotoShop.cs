@@ -12,7 +12,9 @@ public class MotoShop : MonoBehaviour
     [SerializeField] private Text dataText; //Referencia al data Text
     [SerializeField] private GameObject shopCanvas; // Canvas de la tienda
     [SerializeField] private GameObject colorSelectionCanvas; // Canvas del inventario
+    [SerializeField] private GameObject hatStoreCanvas;
     [SerializeField] private Button openInventoryButton; // Botón para volver al inventario desde la tienda
+    [SerializeField] private Button openHatStoreButton;
     [SerializeField] private Text materialNameText; // Texto que mostrará el nombre del material
     [SerializeField] private Button buyButton; // Botón para comprar el material
     [SerializeField] private Button leftArrowButton; // Botón para moverse a la izquierda
@@ -30,36 +32,24 @@ public class MotoShop : MonoBehaviour
         rightArrowButton.onClick.AddListener(SelectNextMaterial);
         buyButton.onClick.AddListener(BuyMaterial);
         openInventoryButton.onClick.AddListener(OpenInventory);
+        openHatStoreButton.onClick.AddListener(OpenHatStore);
         dataText.text = "";
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (!shopCanvas.activeSelf) return; 
 
-            shopCanvas.gameObject.SetActive(false); 
-            Time.timeScale = 1; 
-        }
     }
     void OpenInventory()
     {
         shopCanvas.gameObject.SetActive(false); // Apagar el Canvas de la tienda
         colorSelectionCanvas.gameObject.SetActive(true); // Encender el Canvas del inventario
     }
-    
-    // void ToggleShopCanvas()
-    // {
-    //     bool isActive = shopCanvas.gameObject.activeSelf;
-    //     shopCanvas.gameObject.SetActive(!isActive);
-
-    //     // Actualizar el nombre del material si la tienda está activa
-    //     if (!isActive)
-    //     {
-    //         UpdateMaterialName();
-    //     }
-    // }
+    void OpenHatStore()
+    {
+        shopCanvas.SetActive(false); 
+        hatStoreCanvas.SetActive(true); 
+    }
 
     // Función para seleccionar el material anterior en la lista
     void SelectPreviousMaterial()
@@ -95,7 +85,7 @@ public class MotoShop : MonoBehaviour
             return;
         }
 
-        int materialCost = 10; 
+        int materialCost = 5; 
         if (uIController.coins < materialCost)
         {
             dataText.text = "You don't have enough money";
